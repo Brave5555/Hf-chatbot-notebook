@@ -2,18 +2,14 @@
 from Chatbot import chat_once, ChatSession
 
 def run_single_turn():
-    """
-    Simple one-question test.
-    """
+    # one-question test
     user_msg = input("Ask me: ")
     reply = chat_once(user_msg)
     print("Bot:", reply)
 
 
 def run_chat_loop():
-    """
-    Multi-turn CLI chat using ChatSession.
-    """
+    # Multi-turn CLI chat using ChatSession
     session = ChatSession()
     print("Chat started. Type 'quit' to exit.")
     while True:
