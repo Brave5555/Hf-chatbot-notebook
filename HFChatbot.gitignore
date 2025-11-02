@@ -1,0 +1,12 @@
+# env / secrets
+.env
+hf.env
+HF Chat.env
+
+# python
+__pycache__/
+*.pyc
+
+# jupyter
+.ipynb_checkpoints/
+*.ipynb
