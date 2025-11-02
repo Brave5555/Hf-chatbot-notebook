@@ -5,7 +5,7 @@ from huggingface_hub import InferenceClient
 
 load_dotenv("HF Chat.env")  
 
-MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"
+MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"  # free/public model
 
 def get_hf_client() -> InferenceClient:
     token = os.getenv("HF_TOKEN")
