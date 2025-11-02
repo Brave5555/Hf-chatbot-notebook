@@ -8,27 +8,23 @@ SYSTEM_PROMPT = "You are a concise, helpful assistant."
 client = get_hf_client()
 
 def chat_once(user_message: str) -> str:
-    """
-    Send a single user message to the model and return the assistant's reply.
-    """
+    
     resp = client.chat_completion(
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_message},
         ],
-        max_tokens=256,
-        temperature=0.7,
+        max_tokens=256,   # 256 - ensures answers are not too long
+        temperature=0.7,  # medium setting
         top_p=0.95,
     )
-    # clearer version of the return line
+    
     reply = resp.choices[0].message.get("content", "")
     return reply
 
 
 class ChatSession:
-    """
-    Simple in-memory chat session that keeps conversation history.
-    """
+    # in-memory chat session that keeps conversation history
     def __init__(self, system_prompt: str = SYSTEM_PROMPT):
         self.client = client
         self.history: List[Dict[str, str]] = [
